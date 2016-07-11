@@ -1,0 +1,25 @@
+<div class="wpf-table-title">
+  <h3 class="wpf-center">Transfers price table<span class="wpf-close-btn" {{action 'closePanel'}}></span></h3>
+</div>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>FROM</th>
+      <th>TO</th>
+      <th>DAY PRICE</th>
+      <th>NIGHT PRICE</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data as |transfer|}}
+      <tr>
+        <td>{{transfer.from}}</td>
+        <td>{{transfer.to}}</td>
+        <td class="wpf-price-value">{{format-price transfer.day}}</td>
+        <td class="wpf-price-value">{{format-price transfer.night}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{!--<div class="wpf-center wpf-close-text" {{action 'closePanel'}}>close</div>--}}

@@ -1,0 +1,36 @@
+<div class="wpf-typeahead-wrap">
+  {{#if edit_mode }}
+    {{wpf-input-field class=inputClazz value=selectedValue placeholder=placeHolderText autocomplete="off" spellcheck="false" required="required"}}
+  {{else}}
+    {{partial "location-value"}}
+  {{/if}}
+  <span class="wpf-tt-dropdown-menu {{visibility}} {{pull_left_class}}">
+    <div class="wpf-tt-dataset-states">
+      <span class="wpf-tt-suggestions">
+        {{#each suggestions as |result|}}
+        <div class="wpf-tt-suggestion {{if result.highlight "wpf-tt-cursor"}}" {{action "selectItem" result }}>
+          {{location-icon location=result}}  
+          <div class="wpf-suggestion-title">{{result.title}}</div> 
+          <div class="wpf-suggestion-subtitle">{{result.full_address}}</div>
+        </div>
+        {{else}}
+          {{#each quick_options as |opt| }}
+          <div class="wpf-tt-suggestion {{if result.highlight "wpf-tt-cursor"}}" {{action "selectItem" opt }}>
+            {{location-icon location=opt}}  
+            <div class="wpf-suggestion-title">{{opt.title}}</div> 
+            <div class="wpf-suggestion-subtitle">{{opt.full_address}}</div>
+          </div>
+          {{/each}}
+            {{#if empty_input }}
+          <div class="wpf-tt-suggestion">
+            {{location-icon icon_type="search"}}  
+            <div class="wpf-suggestion-title">Hotel or City address</div> 
+            <div class="wpf-suggestion-subtitle">type any address manually</div>
+          </div>
+            {{/if}}
+        {{/each}}
+      </span>
+    </div>
+  </span>
+</div>
+<span id="wpf-sink"></span>

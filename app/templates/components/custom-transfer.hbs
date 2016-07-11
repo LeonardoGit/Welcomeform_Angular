@@ -1,0 +1,17 @@
+<div class="wpf-section wpf-group">
+  <div class="wpf-col wpf-span-3-of-6">
+    {{googlemaps-autocomplete-input location=first_location}}
+  </div>
+  <div class="wpf-col wpf-span-3-of-6">
+    {{googlemaps-autocomplete-input location=second_location}}
+  </div>
+</div>
+{{#if distance_in_km}}
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6">
+      <div style="padding: 10px 0; font-size: 12px;">
+        Distance: <span class="wpf-c-red">{{distance_in_km}} km</span> | Day price: <span class="wpf-c-red">{{format-price day_custom_transfer_price}}</span> | Night price: <span class="wpf-c-red">{{format-price night_custom_transfer_price}}</span>
+      </div>
+    </div>
+  </div>
+{{/if}}

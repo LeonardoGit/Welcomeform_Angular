@@ -1,0 +1,292 @@
+{
+    "customer_id": 3,
+    "single_location": {
+        "location_id": 4,
+        "location_kind": "hotel",
+        "location_name": "HiltonHotel"
+    },
+    "crm_city": {
+        "id": "input_crm_city",
+        "name": "properties[crm_city]",
+        "value": "Athens"
+    },
+    "crm_distributor": {
+        "id": "input_crm_distributor",
+        "name": "properties[crm_distributor]",
+        "value": "HiltonHotel"
+    },
+    "crm_distributor_type": {
+        "id": "input_crm_distributor_type",
+        "name": "properties[crm_distributor_type]",
+        "value": "Hotel"
+    },
+    "crm_distributor_comission": {
+        "value": 5.0
+    },
+    "crm_vehicle_type": {
+        "id": "input_crm_vehicle_type",
+        "name": "properties[crm_vehicle_type]",
+        "value": "Taxi"
+    },
+    "form": {
+        "layout": "wpf-city",
+        "theme": "wpf-city",
+        "return_to": {
+            "value": "ages/athens-welcome-beyond-the-essentials",
+            "name": "return_to"
+        },
+        "form_action": "/www.welcomepickups.com/cart/add",
+        "calendar_min_date_threshold": 2,
+        "fields": {
+            "form_title": {
+                "id": "form_title",
+                "value": "BookyourWelcomeTransfer"
+            }
+        },
+        
+        
+        "first_way": {
+            "date": {
+            "id": "first_way_date",
+            "name": "properties[first_way_date]",
+            "label": "DATE",
+            "placeholder": "DD/MM/YYYY",
+            "value": ""
+        },
+        "time": {
+            "id": "first_way_time",
+            "name": "properties[first_way_time]",
+            "label": "TIME",
+            "placeholder": "",
+            "value": ""
+        },
+        "flight_number": {
+            "id": "first_way_flight_number",
+            "name": "properties[first_way_flight_number]",
+            "label": "FLIGHTNO.",
+            "placeholder": "LH735",
+            "value": ""
+        },
+        "ferry_number": {
+            "id": "first_way_flight_number",
+            "name": "properties[first_way_ferry_number]",
+            "label": "FERRYNO.",
+            "placeholder": "Seajet1",
+            "value": ""
+        },
+        "passengers": {
+            "id": "first_way_passengers",
+            "name": "properties[first_way_passengers]",
+            "label": "NUMBEROFPASSENGERS",
+            "placeholder": "Numberofpassengers",
+            "value": 1
+        },
+        "luggage": {
+            "id": "first_way_luggage",
+            "name": "properties[first_way_luggage]",
+            "label": "NUMBEROFLuggage",
+            "placeholder": "NumberofLuggage",
+            "value": 1
+        },
+        "from_name": {
+            "id": "first_way_from_name",
+            "name": "properties[first_way_from_name]",
+            "label": "From",
+            "placeholder": "Startypingalocation",
+            "value": ""
+        },
+        "from_latlng": {
+            "id": "first_way_from_latlng",
+            "name": "properties[first_way_from_latlng]",
+            "value": ""
+        },
+        "from_location_id": {
+            "id": "from_location_id",
+            "name": "properties[first_way_from_location_id]",
+            "value": ""
+        },
+        "to_name": {
+            "id": "first_way_to_name",
+            "name": "properties[first_way_to_name]",
+            "label": "To",
+            "placeholder": "Starttyping",
+            "value": ""
+        },
+        "to_latlng": {
+            "id": "first_way_to_latlng",
+            "name": "properties[first_way_to_latlng]",
+            "value": ""
+        },
+        "to_location_id": {
+            "id": "first_way_to_location_id",
+            "name": "properties[first_way_to_location_id]",
+            "value": ""
+        },
+        "driver_cost": {
+            "id": "first_way_driver_cost",
+            "name": "properties[first_way_driver_cost]",
+            "value": ""
+        },
+        "traveler_cost": {
+            "id": "first_way_traveler_cost",
+            "name": "properties[first_way_traveler_cost]",
+            "value": ""
+        }
+
+        },
+        "second_way": {
+            "date": {
+                "id": "second_way_date",
+                "name": "properties[second_way_date]",
+                "label": "DATE",
+                "placeholder": "DD/MM/YYYY",
+                "value": ""
+            },
+            "time": {
+                "id": "second_way_time",
+                "name": "properties[second_way_time]",
+                "label": "TIME",
+                "placeholder": "",
+                "value": ""
+            },
+            "flight_number": {
+                "id": "second_way_flight_number",
+                "name": "properties[second_way__flight_number]",
+                "label": "FLIGHTNO.",
+                "placeholder": "LH735",
+                "value": ""
+            },
+            "flight_number": {
+                "id": "second_way_flight_number",
+                "name": "properties[second_way__flight_number]",
+                "label": "FLIGHTNO.",
+                "placeholder": "LH735",
+                "value": ""
+            },
+            "ferry_number": {
+                "id": "second_way_flight_number",
+                "name": "properties[second_way_flight_number]",
+                "label": "FERRYNO.",
+                "placeholder": "Seajet2",
+                "value": ""
+            },
+            "passengers": {
+                "id": "second_way_passengers",
+                "name": "properties[second_way_passengers]",
+                "label": "NUMBEROFPASSENGERS",
+                "placeholder": "Numberofpassengers",
+                "value": 1
+            },
+            "luggage": {
+                "id": "second_way_luggage",
+                "name": "properties[first_way_luggage]",
+                "label": "NUMBEROFLuggage",
+                "placeholder": "NumberofLuggage",
+                "value": 1
+            },
+            "from_name": {
+                "id": "second_way_from_name",
+                "name": "properties[second_way_from_name]",
+                "label": "From",
+                "placeholder": "Starttyping",
+                "value": ""
+            },
+            "from_latlng": {
+                "id": "second_way_from_latlng",
+                "name": "properties[second_way_from_latlng]",
+                "value": ""
+            },
+            "from_location_id": {
+                "id": "second_way_location_id",
+                "name": "properties[second_way_from_location_id]",
+                "value": ""
+            },
+            "to_name": {
+                "id": "second_way_to_name",
+                "name": "properties[second_way_to_name]",
+                "label": "Destinationpoint",
+                "placeholder": "Selectlocation",
+                "value": ""
+            },
+            "to_latlng": {
+                "id": "first_way_from_name",
+                "name": "properties[second_way_to_latlng]",
+                "value": ""
+            },
+            "to_location_id": {
+                "id": "second_way_to_location_id",
+                "name": "properties[second_way_to_location_id]",
+                "value": ""
+            },
+            "driver_cost": {
+                "id": "second_way_driver_cost",
+                "name": "properties[second_way_driver_cost]",
+                "value": ""
+            },
+            "traveler_cost": {
+                "id": "second_way_traveler_cost",
+                "name": "properties[second_way_traveler_cost]",
+                "value": ""
+            }
+
+        },
+        "email": {
+            "id": "email",
+            "name": "properties[email]",
+            "label": "EMAIL",
+            "placeholder": "YourEmail",
+            "value": ""
+        },
+        "full_name": {
+            "id": "full_name",
+            "name": "properties[full_name]",
+            "label": "FULLNAME",
+            "placeholder": "AlexGray",
+            "value": ""
+        },
+        "traveler_comment": {
+            "id": "traveler_comment",
+            "name": "properties[traveler_comment]",
+            "label": "ANYTHINGELSEYOUWANTUSTOKNOW",
+            "placeholder": "Writeyourcommentshere",
+            "value": ""
+        },
+        "coupon_field": {
+            "id": "coupon_field",
+            "name": "properties[coupon]",
+            "label": "Ihaveacoupon",
+            "placeholder": "Couponcode",
+            "value": ""
+        },
+        "coupon_cost": {
+            "id": "coupon_cost",
+            "name": "properties[coupon_cost]"
+        }
+    },
+
+    "coupons": [
+        {
+            "fixed_discount": false,
+            "code": "myWelcome",
+            "value": 15
+        },
+        {
+            "fixed_discount": true,
+            "code": "HappyWelcome",
+            "value": 5
+        }
+    ],
+
+    "price_timespans": {
+        "night": {
+            "label": "nightprice",
+            "start": 0,
+            "end": 5
+        },
+        "day": {
+            "label": "dayprice",
+            "start": 6,
+            "end": 23
+        }
+    }
+}

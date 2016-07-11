@@ -1,0 +1,244 @@
+// Namespace all styles.
+// TIP: in order to avoid name conflicts with host's site css, use longer names for themes (ex. wpf-my-unique-awesome-theme).
+.wpf-wrapper .wpf-city {
+  background-color: #fff;
+  padding: 0px;
+  border-radius: 4px;
+
+  /* ==========================================================================
+     Form elements styling
+     ========================================================================== */
+  .wpf-form-title {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  .wpf-section > .wpf-col.wpf-form-box {
+    padding-left : 0px;
+    padding-right: 0px;
+  }
+  
+  .wpf-form {
+
+  }
+
+  .wpf-form-row-label {
+    color: #73777C;
+    font-weight: 500;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  .wpf-form-row {
+    margin: 0px;
+    padding: 15px 20px;
+    -webkit-animation: wpf-fadein 0.3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: wpf-fadein 0.3s; /* Firefox < 16 */
+        -ms-animation: wpf-fadein 0.3s; /* Internet Explorer */
+         -o-animation: wpf-fadein 0.3s; /* Opera < 12.1 */
+            animation: wpf-fadein 0.3s;
+  }
+
+  .wpf-booking-type-box {
+    padding-bottom: 0px;
+  }
+
+  .wpf-first-ride-box, .wpf-second-ride-box {
+    background-color: #f4f4f4;
+    padding: 15px 20px 5px 20px;
+  }
+
+  .wpf-first-ride-box {
+   border-bottom: 1px solid #e3e3e3;
+  }
+
+  .wpf-second-ride-box {
+   border-top: 1px solid #e3e3e3;
+  }
+
+  .wpf-price-box {
+    padding: 0px 20px 5px 20px;
+
+    .wpf-price-container {
+      position: relative;
+      padding-top: 20px;
+      font-weight: 500;
+      border: 1px solid #e3e3e3;
+      border-radius: 2px;
+    }
+
+    .wpf-price-text {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .wpf-price-value {
+      color: #3adb8a;
+    }
+
+    .wpf-price-actions {
+      margin-top: 5px;
+    }
+
+    .wpf-price-info-toggle {
+      position: absolute;
+      cursor: pointer;
+      top: 18px;
+      right: 18px;
+      margin-left: 20px;
+      width: 21px;
+      height: 21px;
+      background: url(images/circle_info.png) no-repeat center center;
+    }
+  }
+
+  .wpf-price-info {
+    margin-bottom: 10px;
+    font-size: 14px;
+    display: none;
+
+    &.open {
+      display: block;
+      margin-bottom: 0px;
+      -webkit-animation: wpf-fadein 0.3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: wpf-fadein 0.3s; /* Firefox < 16 */
+        -ms-animation: wpf-fadein 0.3s; /* Internet Explorer */
+         -o-animation: wpf-fadein 0.3s; /* Opera < 12.1 */
+            animation: wpf-fadein 0.3s;
+    }
+    
+    .wpf-price-info-row {
+      padding: 10px 20px;
+      width: 100%;
+
+       &:nth-of-type(3), &:nth-of-type(5){
+        border-top: 1px solid #e3e3e3;
+      }
+    }
+
+    .wpf-price-info-title {
+      float: left;
+      text-align: left;
+    }
+
+    .wpf-price-info-price {
+      float: right;
+      text-align: right;
+      color: #abafb4;
+    }
+  }
+
+  .wpf-ride-activation-button {
+    cursor: pointer;
+    color: #afb0b4;
+    background-color: #f4f4f4;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 1em;
+    display: block;
+
+    &:hover, &:focus {
+      color: #73777C;
+      background-color: #ECECEC;
+    }
+  }
+
+  .wpf-circle-caret {
+    position: absolute;
+    cursor: pointer;
+    top: 10px;
+    right: 20px;
+    width: 21px;
+    height: 21px;
+    background: url(images/caret.png) no-repeat center center;
+    background-size: 9px 5px;
+  }
+
+  .wpf-transfer-prices-table-toggle {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    bottom: -4px;
+    margin-left: 0px;
+    width: 17px;
+    height: 17px;
+    background: url(images/circle_info_small.png) no-repeat center center;
+  }
+
+  .wpf-btn {
+    padding: 10px 20px;
+    text-transform: uppercase;
+    white-space: inherit;
+  }
+
+  .wpf-submit-form-btn {
+    background: #3adb8a;
+    margin-top: 0px;
+  }
+
+  .parsley-errors-list li{
+    color: #CA5E5E;
+  }
+
+  .wpf-coupon-input {
+    position: relative;
+
+    .wpf-success {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 10px;
+      right: 10px;
+      color: #3adb8a;
+    }
+
+    .wpf-error {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 10px;
+      right: 12px;
+      color: #ff0000;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    
+  }
+
+  
+}
+
+// Because calendar renders under body, the code for custom theme must be under .wpf-city { your theme.. } and NOT under .wpf-wrapper .wpf-city { your theme... }
+// TIP: in order to avoid name conflicts with host's site css, use longer names for themes (ex. wpf-my-unique-awesome-theme).
+.wpf-city {
+  &.pika-single {
+    background: #fff;
+  }
+
+  .pika-label {
+    background: #fff;
+  }
+
+  .pika-button {
+    background: #fff;
+  }
+
+  .is-today .pika-button {
+      color: #f1981f;
+  }
+
+  .is-selected .pika-button {
+      color: #fff;
+      background: #3adb8a;
+      box-shadow: inset 0 1px 3px #3adb8a;
+  }
+
+  .pika-button:hover {
+      color: #fff !important;
+      background: #3adb8a !important;
+  }
+}
+

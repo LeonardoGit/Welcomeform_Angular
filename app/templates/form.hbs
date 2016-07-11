@@ -1,0 +1,46 @@
+<div class="wpf-container-fluid">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6 wpf-form-box">
+      <div class="wpf-form-overlay" {{action 'toggleLockForm'}}></div>
+      {{!-- FORM TITLE --}}
+      {{#if form.form_title}}
+        <h2 class="wpf-form-title">{{form.form_title.value}}</h2>
+      {{/if}}
+
+      <form method="post" action="{{form.form_action.value}}" name="wpf-form" class="wpf-form" data-parsley-focus="none">
+
+        {{!-- MANDATORY SHOPIFY HIDDEN FIELDS --}}
+        {{input type="hidden" value=form.return_to.value name="return_to"}}
+        {{input type="hidden" value=form.shopify_variant.id name='id'}}
+        
+        {{!-- SET ALL HIDDEN FIELDS --}}
+        {{input type="hidden" value=form.crm_city.value id=form.crm_city.id name=form.crm_city.name}}
+        {{input type="hidden" value=form.crm_distributor.value id=form.crm_distributor.id name=form.crm_distributor.name}}
+        {{input type="hidden" value=form.crm_vehicle_type.value id=form.crm_vehicle_type.id name=form.crm_vehicle_type.name}}
+        {{input type="hidden" value=form.crm_page_url.value id=form.crm_page_url.id name=form.crm_page_url.name}}
+        {{input type="hidden" value=form.crm_utm_campaign.value id=form.crm_utm_campaign.id name=form.crm_utm_campaign.name}}
+        {{input type="hidden" value=form.crm_utm_source.value id=form.crm_utm_source.id name=form.crm_utm_source.name}}
+        {{input type="hidden" value=form.crm_utm_medium.value id=form.crm_utm_medium.id name=form.crm_utm_medium.name}}
+
+        {{!-- Here we render the right partial based on customer layout selection --}}
+        {{  partial form_layout }}
+        
+        <div class="wpf-form-row wpf-price-box">
+            <div class="wpf-section wpf-group">
+                <div class="wpf-col wpf-span-6-of-6 wpf-center">
+                  <span class="wpf-simple-text-btn" {{action 'toggleTransferPricesTable'}}>
+                    Common Transfer Prices&nbsp;&nbsp;&nbsp;
+                    <span class="fa-stack fa-sm" >
+                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                        <i class="fa fa-info fa-stack-1x"></i>
+                    </span>
+                  </span>
+                </div>
+            </div>
+        </div>
+        {{ address-not-found-panel visible=is_address_not_found_panel_visible action='toggleAddressNotFoundPanel' autocomplete=autocomplete_for_location}}
+        {{transfer-prices-table visible=is_transfer_prices_table_visible city=form.crm_city.value action='toggleLockForm' commission_fee=form.crm_distributor_comission.value common_prices=form.common_prices price_table_with_comission=form.price_table_with_comission}}
+    </form>
+</div>
+  </div>
+</div>

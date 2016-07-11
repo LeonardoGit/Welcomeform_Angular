@@ -1,0 +1,134 @@
+<!-- First Way -->
+{{input type="hidden" value=form.first_way.date.value name=form.first_way.date.name}}
+{{input type="hidden" value=form.first_way.time.value name=form.first_way.time.name}}
+{{input type="hidden" value=form.first_way.flight_number.value name=form.first_way.flight_number.name}}
+{{input type="hidden" value=form.first_way.ferry_number.value name=form.first_way.ferry_number.name}}
+{{input type="hidden" value=form.first_way.passengers.value name=form.first_way.passengers.name}}
+{{input type="hidden" value=form.first_way.luggage.value name=form.first_way.luggage.name}}
+{{input type="hidden" value=form.first_way.from_name.value name=form.first_way.from_name.name}}
+{{input type="hidden" value=form.first_way.from_latlng.value name=form.first_way.from_latlng.name}}
+{{input type="hidden" value=form.first_way.from_location_id.value name=form.first_way.from_location_id.name}}
+{{input type="hidden" value=form.first_way.to_name.value name=form.first_way.to_name.name}}
+{{input type="hidden" value=form.first_way.to_latlng.value name=form.first_way.to_latlng.name}}
+{{input type="hidden" value=form.first_way.to_location_id.value name=form.first_way.to_location_id.name}}
+{{input type="hidden" value=form.first_way.driver_cost.value name=form.first_way.driver_cost.name}}
+{{input type="hidden" value=form.first_way.traveler_cost.value name=form.first_way.traveler_cost.name}}
+
+{{#if form.is_return_selected}}
+<!-- Second Way -->
+{{input type="hidden" value=form.second_way.date.value name=form.second_way.date.name}}
+{{input type="hidden" value=form.second_way.time.value name=form.second_way.time.name}}
+{{input type="hidden" value=form.second_way.flight_number.value name=form.second_way.flight_number.name}}
+{{input type="hidden" value=form.second_way.ferry_number.value name=form.second_way.ferry_number.name}}
+{{input type="hidden" value=form.first_way.passengers.value name=form.second_way.passengers.name}}
+{{input type="hidden" value=form.first_way.luggage.value name=form.second_way.luggage.name}}
+{{input type="hidden" value=form.second_way.from_name.value name=form.second_way.from_name.name}}
+{{input type="hidden" value=form.second_way.from_latlng.value name=form.second_way.from_latlng.name}}
+{{input type="hidden" value=form.second_way.from_location_id.value name=form.second_way.from_location_id.name}}
+{{input type="hidden" value=form.second_way.to_name.value name=form.second_way.to_name.name}}
+{{input type="hidden" value=form.second_way.to_latlng.value name=form.second_way.to_latlng.name}}
+{{input type="hidden" value=form.second_way.to_location_id.value name=form.second_way.to_location_id.name}}
+{{input type="hidden" value=form.second_way.driver_cost.value name=form.second_way.driver_cost.name}}
+{{input type="hidden" value=form.second_way.traveler_cost.value name=form.second_way.traveler_cost.name}}
+{{/if}}
+
+{{input type="hidden" value=form.form_total_price name=form.total_traveler_cost.name}}
+
+<h1 class="wpf-step-title">
+  <span class="fa-stack wpf-back-btn" {{action "previous_step"}}>
+    <i class="fa fa-circle-thin fa-stack-2x"></i>
+    <i class="fa fa-chevron-left fa-stack-1x"></i>
+  </span>
+  <span class="wpf-step-name">Step 3</span> - <span class="wpf-step-description">Overview & Confirmation</span>
+</h1>
+<div class="wpf-breadcrumb">
+    <div class="wpf-breadcrumb-active wpf-breadcrumb-step-3">
+    </div>
+    <i class="fa fa-dot-circle-o wpf-breadcrumb-icon-step-1"></i>
+    <i class="fa fa-dot-circle-o wpf-breadcrumb-icon-step-2"></i>
+    <i class="fa fa-dot-circle-o wpf-breadcrumb-icon-step-3"></i>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-3-of-6">
+      <div class="wpf-control">
+        <label for="{{form.full_name.id}}"  class="wpf-input-label">{{form.full_name.label}}</label> 
+        {{wpf-input-field type="text" value=form.full_name.value id=form.full_name.id name=form.full_name.name class="wpf-input" placeholder=form.full_name.placeholder required=required_field}}
+      </div>
+    </div>
+    <div class="wpf-col wpf-span-3-of-6">
+      <div class="wpf-control">
+        <label for="{{form.email.id}}"  class="wpf-input-label">{{form.email.label}}</label> 
+        {{wpf-input-field type="email" value=form.email.value id=form.email.id name=form.email.name class="wpf-input" 
+        placeholder=form.email.placeholder required=required_field}}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6">
+      <div class="wpf-control">
+        <label for="{{form.traveler_phone.id}}"  class="wpf-input-label">{{form.traveler_phone.label}}</label> 
+        {{intl-tel-input value=form.traveler_phone.value id=form.traveler_phone.id name=form.traveler_phone.name class="wpf-input" 
+        placeholder=form.traveler_phone.placeholder required="true"}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6">
+      <div class="wpf-control">
+        <label for="{{form.traveler_comment.id}}"  class="wpf-input-label">{{form.traveler_comment.label}}</label> 
+        {{wpf-textarea-field value=form.traveler_comment.value id=form.traveler_comment.id 
+        name=form.traveler_comment.name rows="6" class="wpf-input" placeholder=form.traveler_comment.placeholder}}
+      </div>
+    </div>
+  </div>
+</div>
+{{#if form.form_has_coupons}}
+<div class="wpf-form-row">
+    <div class="wpf-section wpf-group">
+        <div class="wpf-col wpf-span-6-of-6 wpf-coupon-input">
+            <div class="wpf-center wpf-coupon-trigger" {{action "toggleCouponField"}}>{{form.coupon_field.label}}</div>
+            {{#if is_coupon_visible}}
+            {{input type="text" class="wpf-input" value=form.coupon_field.value name=form.coupon_field.name placeholder=form.coupon_field.placeholder}}
+            {{#if form.user_has_coupons}}
+            {{input type="hidden" value=form.total_coupon_discount name=form.coupon_cost.name id=form.coupon_cost.id}}
+                <div class="wpf-success wpf-coupon-check">&#10004;</div>
+            {{else}}
+                {{#if form.coupon_field.value}}
+                <div class="wpf-error wpf-coupon-check">&#10008;</div>
+                {{/if}}
+            {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</div>
+{{/if}}
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6">
+      <div class="wpf-boxed wpf-center">
+        <span class="wpf-total-cost">TOTAL COST - </span>
+        <span class="wpf-price-value">{{format-price form.form_total_price}}</span>
+        <p class="wpf-secondary-light">Inc. VAT</p>
+        {{wpf-price-tooltip form=form}}
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6 wpf-center">
+      <button type="submit" id="next-form-btn" class="wpf-btn wpf-submit-form-btn">
+        Complete Booking
+      </button>
+    </div>
+  </div>
+</div>
+

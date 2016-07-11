@@ -1,0 +1,1323 @@
+
+// Import themes
+//@import "themes/default";
+//@import "themes/city";
+//@import "themes/hotel";
+//@import "themes/incrediblue";
+//@import "themes/aat";
+@import "bower_components/font-awesome/scss/font-awesome";
+
+@import url("https://cdn.shopify.com/s/files/1/0516/1281/t/5/assets/museo-sans.css?16206097657767597765");
+.iti-flag {background-image: url("/images/flags.png");}
+$button-default-color: #6ae2a6;
+$button-default-padding: 12px;
+
+$button-message-default-color: gray;
+
+$input-border-color: #e4e4e4;
+$input-border-valid-color: $button-default-color;
+$input-border-error-color: #ef000d;
+
+$text-primary-color: $button-default-color;
+$text-secondary-color: gray;
+$text-secondary-light-color: #e4e4e4;
+
+$label-default-color: black;
+$label-valid-color: $button-default-color;
+$label-error-color: $input-border-error-color;
+
+$focus-background-color: #f4f5f6;
+
+// All widget styles are namespaces under wpf-wrapper. 
+.wpf-wrapper {
+  background-color: white;
+  color: #2e3b4e;
+  border-radius: 2px;
+  overflow: visible !important;
+  min-width: 450px;
+  font-family: "Museo Sans";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+  
+  // General elements css
+  hr{
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #ccc;
+    margin:1em 0;
+    padding:0;
+  }
+
+  fieldset{
+    display: block;
+    margin: 0px;
+    padding: 0px 5px 0px 5px;
+    border: 1px solid #e3e3e3;
+  }
+
+  legend {
+    width: auto;
+    font-size: 12px;
+    color: #2e3b4e;
+    text-transform: uppercase;
+    line-height: 1em;
+    display: block;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
+
+  textarea{
+    resize:vertical;
+  }
+
+  ul, li { 
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+  }
+  
+  * {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  a { 
+    outline: none!important; 
+    text-decoration: none; 
+    color: #4fc48e; 
+  }
+
+  a:hover { 
+    text-decoration: underline; 
+  }
+
+  p { 
+    margin: 0; 
+  }
+
+  ul,li { 
+    margin: 0; 
+    padding: 0; 
+  }
+
+  h1,h2,h3,h4 { 
+    font-weight: normal; 
+    margin: 0; 
+    padding: 0; 
+  }
+
+  /* ==========================================================================
+     Custom responsive grid
+     ========================================================================== */
+
+     /* 
+        Example usage:
+
+        <div class="wpf-section wpf-group">
+          <div class="wpf-col span-1-of-6">
+          1 of 6
+          </div>
+          <div class="wpf-col wpf-span-1-of-6">
+          1 of 6
+          </div>
+          <div class="wpf-col wpf-span-1-of-6">
+          1 of 6
+          </div>
+          <div class="wpf-col wpf-span-1-of-6">
+          1 of 6
+          </div>
+          <div class="wpf-col wpf-span-1-of-6">
+          1 of 6
+          </div>
+          <div class="wpf-col wpf-span-1-of-6">
+          1 of 6
+          </div>
+        </div>
+
+     */
+
+  .wpf-container-fluid {
+    //padding-right: 1%;
+    //padding-left: 1%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /*  SECTIONS  */
+  .wpf-section {
+    clear: both;
+    //padding: 0px;
+    margin-left: -1%;
+    margin-right: -1%;
+  }
+
+  /* .wpf-form-row >.wpf-section {
+    margin-bottom: 14px;
+  } */
+
+  /*  COLUMN SETUP  */
+  .wpf-section > .wpf-col {
+    position: relative;
+    display: block;
+    float: left;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  /*  GROUPING  */
+  .wpf-group:before,
+  .wpf-group:after { 
+    content:""; 
+    display:table; 
+  }
+
+  .wpf-group:after { 
+    clear:both;
+  }
+
+  .wpf-group { 
+    zoom:1; /* For IE 6/7 */ 
+  }
+
+  /*  GRID OF SIX  */
+  .wpf-span-6-of-6 {
+    width: 100%;
+  }
+
+  .wpf-span-5-of-6 {
+    width: 83.333333333%;
+  }
+
+  .wpf-span-4-of-6 {
+    width: 66.666666667%;
+  }
+
+  .wpf-span-3-of-6 {
+    width: 50%;
+  }
+
+  .wpf-span-2-of-6 {
+    width: 33.333333333%;
+  }
+
+  .wpf-span-1-of-6 {
+    width: 16.666666667%;
+  }
+
+  .wpf-span-2-and-half-of-6 {
+    width: 41.666666666%;
+  }
+
+  /*  GO FULL WIDTH BELOW 480 PIXELS */
+  @media only screen and (max-width: 449px) {
+    min-width: 0px;
+
+    .wpf-span-1-of-6, .wpf-span-2-of-6, .wpf-span-3-of-6, .wpf-span-4-of-6, .wpf-span-5-of-6, .wpf-span-6-of-6, .wpf-span-2-and-half-of-6 { 
+      width: 100%; 
+    }
+  }
+
+  /* ==========================================================================
+     Helper classes
+     ========================================================================== */
+  
+  .wpf-center {
+    text-align: center;
+  }
+
+  .wpf-c-green {
+    color: #3adb8a;
+  }
+
+  .wpf-c-red {
+    color: #DB3A3A;
+  }
+
+  .wpf-c-gray {
+    color: #abafb4;
+  }
+
+  .wpf-c-light-gray {
+    color: #CFD5DB;
+  }
+  
+  .wpf-hidden {
+    display: none !important;
+    visibility: hidden;
+  }
+
+  .wpf-underline {
+    border-bottom: 1px solid #2e3b4e;
+  }
+
+  .wpf-pull-left {
+    float: left !important;
+  }
+
+  .wpf-pull-right {
+    float: right !important;
+  }
+
+  .wpf-empty-box {
+    height: 60px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    content: " ";
+    display: table;
+  }
+
+  .clearfix:after {
+    clear: both;
+  }
+
+  .clearfix {
+    *zoom: 1;
+  }
+  
+  /* ==========================================================================
+     General styling for basic form elements
+     ========================================================================== */
+  // Form containing box
+  .wpf-section > .wpf-col.wpf-form-box {
+    position: relative;
+
+    &.locked .wpf-form-overlay {
+      position: absolute;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 49;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: -1px;
+    }
+  }
+  
+  // Main form
+  .wpf-form {
+    
+  }
+
+  // Form row with fields
+  .wpf-form-row {
+    position: relative;
+    margin: 5px 0 14px 0;
+   // padding-right: 3%;
+   // padding-left: 3%;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    .wpf-nested-row {
+      margin-bottom: 15px;
+    }
+
+  }
+
+  .wpf-form-row-label {
+    font-size: 12px;
+    color: #2e3b4e;
+    text-transform: uppercase;
+    line-height: 1em;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  label.wpf-input-label, div.wpf-input-label {
+    font-size: 10px;
+    color: #2e3b4e;
+    text-transform: uppercase;
+    line-height: 1em;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  .wpf-asterisk {
+    color: red;
+  }
+  
+  .wpf-input {
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 10px;
+    border-radius: 2px;
+    margin-bottom: 0px !important;
+    /* -webkit-box-shadow: 0 1px 0 rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.8);
+    box-shadow: 0 1px 0 rgba(0,0,0,.05),inset 0 1px 0 rgba(255,255,255,.8); */
+  }
+
+  .intl-tel-input{
+    width: 100%;
+  }
+
+  .wpf-textarea {
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+  }
+
+  .wpf-select {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 2px;
+    min-width: 60px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+     -webkit-appearance: none;
+
+    .selectize-input {
+      height: 40px;
+      line-height: 26px;
+      border: 1px solid #e3e3e3;
+      background-image: none !important;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    .selectize-dropdown, .selectize-input, .selectize-input input {
+      font-size: 14px;
+    }
+  }
+
+  select.wpf-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    overflow: hidden;
+    background: url(images/caret.png) no-repeat;
+    background-position: calc(100% - 1px) 50%;
+    background-size: 9px 5px;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 0 10px;
+//    border-radius: 2px;
+    margin-bottom: 0px !important;
+
+    
+    option {
+      height: 40px;
+      line-height: 26px;
+      border: 1px solid #e3e3e3;
+      background-image: none !important;
+      background: #fff;
+      border-radius: 2px;
+    }
+  }
+  
+  // General button css
+  .wpf-btn {
+    line-height: 2;
+    width: 100%;
+    cursor: pointer;
+    background: #616161;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 0 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 5px;
+  }
+  
+  // Option button css
+  .wpf-option-btn {
+    background: #fff;
+    color: #2e3b4e;
+    margin-bottom: 5px;
+  }
+  
+  // Form submit button css
+  .wpf-submit-form-btn {
+    margin-top: 10px;
+    background: $button-default-color;
+    padding: $button-default-padding;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .wpf-submit-form-btn-with-error{
+    padding-top: 2px;
+    padding-bottom: 6px;
+  }
+
+  .wpf-button-message{
+    margin-top: -8px;
+    font-size: 12px;
+    color: white;
+    font-weight: normal;
+  }
+  
+  // Extra info fields css. Is for texts under the submit button.
+  .wpf-fields-info {
+    margin-top: 10px;
+    font-size: 10px;
+  }
+
+  .wpf-transfer-prices-table {
+    background-color: #fff;
+    margin-left: 25px;
+    top: 10%;
+    position: absolute;
+    width: calc(100% - 60px);
+    border-radius: 4px;
+    z-index: 50;
+    bottom: 5%;
+    padding: 20px 0px;
+    //margin: 10px;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    border-top: 1px solid #abafb4;
+    -webkit-animation: wpf-fadein 0.2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: wpf-fadein 0.2s; /* Firefox < 16 */
+        -ms-animation: wpf-fadein 0.2s; /* Internet Explorer */
+         -o-animation: wpf-fadein 0.2s; /* Opera < 12.1 */
+            animation: wpf-fadein 0.2s;
+
+
+    .wpf-table-title {
+      margin-bottom: 10px;
+
+      h3 {
+        font-weight: 500;
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      margin-left: 20px;
+
+      thead, tbody, tr, td, th { display: block; }
+
+      tr:after {
+          content: ' ';
+          display: block;
+          visibility: hidden;
+          clear: both;
+      }
+
+      tbody {
+          max-height: 300px;
+          overflow-y: auto;
+      }
+
+      thead {
+          /* fallback */
+          width: 97%;
+          /* minus scroll bar width */
+          width: calc(100% - 17px);
+      }
+
+
+      tbody td, thead th {
+          width: 25%;
+          float: left;
+      }
+
+      tbody td:last-child, thead th:last-child {
+          border-right: none;
+      }
+
+      tr {
+        font-weight: 400;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+      }
+
+      th {
+        text-align: left;
+        padding: 5px 0px;
+        font-size: 14px;
+        font-weight: 500;
+        color: black;
+      }
+
+      td {
+        padding: 10px 0px;
+        font-size: 13px;
+      }
+    }
+  }
+
+  .wpf-close-btn {
+    position: relative;
+    float: right;
+    right: 10px;
+    top: -5px;
+    cursor: pointer;
+    color: #abafb4;
+    border-radius: 30px;
+    background: transparent;
+    font-size: 31px;
+    font-weight: bold;
+     text-decoration: none;
+    display: inline-block;
+    line-height: 0px;
+    padding: 11px 3px;
+  }
+
+  .wpf-close-btn:before{
+   content: "×";
+  }
+
+  .wpf-close-text {
+    cursor: pointer;
+    color: #CA5E5E;
+    text-decoration: underline;
+    width: 100px;
+    margin: 10px auto 0 auto;
+  }
+
+  .wpf-simple-text-btn {
+    cursor: pointer;
+    color: $text-secondary-color;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  .wpf-label {
+    display: inline;
+    margin: 0 5px;
+    padding: 2px 6px 3px;
+    //font-size: 75%;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #3adb8a;
+  }
+  
+  .selectize-control.plugin-remove_button [data-value] {
+    padding-right: 0px !important;
+  }
+
+  .selectize-control.single .selectize-input {
+    box-shadow: none;
+  }
+
+  /* ==========================================================================
+     Custom animations
+     ========================================================================== */
+
+
+  @keyframes wpf-fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Firefox < 16 */
+  @-moz-keyframes wpf-fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Safari, Chrome and Opera > 12.1 */
+  @-webkit-keyframes wpf-fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Internet Explorer */
+  @-ms-keyframes wpf-fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+
+  /* Opera < 12.1 */
+  @-o-keyframes wpf-fadein {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+  }
+}
+
+
+  
+/* TEXT INPUT */
+input[type="text"] {
+  background-clip: padding-box;
+  margin: 0;
+  outline: 0;
+  text-align: left;
+  -webkit-appearance: none;
+}
+input[type="email"] {
+  background-clip: padding-box;
+  margin: 0;
+  outline: 0;
+  text-align: left;
+  -webkit-appearance: none;
+}
+textarea {
+  background-clip: padding-box;
+  margin: 0;
+  outline: 0;
+  text-align: left;
+  -webkit-appearance: none;
+}
+
+.text-input {
+  display: inline-block;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid #91acbc;
+  font-size: 16px;
+  vertical-align: middle;
+  border-radius: .25rem;
+}
+
+.wpf-image-active{
+    margin-right: -10px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.wpf-image-inactive{
+    margin-top: 10px;
+    display: none;
+}
+
+/* TYPEAHEAD */
+.wpf-typeahead-wrap {
+  display: block;
+  position: relative;
+}
+
+.wpf-tt-dropdown-menu.hidden {
+  display: none;
+}
+
+.wpf-tt-dropdown-menu.visible {
+  display: block;
+}
+
+.wpf-tt-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  min-width: 370px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #91acbc;
+  background: #fff;
+  list-style: none;
+  border-radius: .10rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+  z-index: 2500;
+  @media only screen and (max-width: 449px) {
+    min-width: 200px;
+    max-width: 100%
+  }
+}
+
+.wpf-tt-dropdown-menu-pull-left {
+  right: 0%;
+}
+
+.wpf-tt-suggestions {
+  display: block;
+}
+
+.wpf-tt-suggestion {
+  height: 58px;
+  margin: 0;
+  padding: .6rem .6rem;
+  color: #313131;
+  cursor: pointer;
+  line-height: 2.5rem;
+  position: relative;
+}
+
+.wpf-tt-suggestion:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid #cfe0ed;
+}
+
+.wpf-tt-suggestion:first-child:before {
+  border: 0;
+}
+
+.wpf-tt-suggestion.tt-cursor,
+.wpf-tt-suggestion:hover {
+  background: #f4f5f7;
+}
+
+.wpf-tt-suggestion b {
+  display: inline-block;
+  width: 4.5rem;
+  font-weight: 600;
+}
+
+.wpf-tt-suggestion p {
+  margin: 0;
+}
+
+.wpf-tt-suggestions.no-results {
+  height: auto;
+}
+
+.wpf-tt-suggestions .wpf-tt-message {
+  height: 2.5rem;
+  padding: 0 .75rem;
+  color: #313131;
+  cursor: pointer;
+  line-height: 2.5rem;
+}
+
+.wpf-tt-suggestions .wpf-tt-message.wpf-tt-address-not-found{
+  height: 16rem;
+}
+
+.wpf-tt-suggestions .wpf-tt-message p {
+  margin: 0;
+}
+
+.wpf-tt-suggestion.wpf-tt-cursor, .wpf-tt-suggestion:hover {
+  background: #f4f5f7;
+  cursor:pointer;
+}
+.wpf-tt-suggestion:hover{
+    .wpf-image-active{
+        display: inline-block;      
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .wpf-image-inactive{
+        display: none;
+    }
+}
+.wpf-tt-suggestion{
+    .wpf-image-active{
+        display: none;
+    }
+
+    .wpf-image-inactive{
+        display: inline-block;      
+    }
+}
+  
+.wpf-address-not-found-panel {
+  background-color: #fff;
+  position: absolute;
+  width: calc(100% - 20px);
+  border-radius: 4px;
+  z-index: 50;
+  top: 30%;
+  margin-left: 5px;
+  padding: 20px 10px;
+  //margin: 10px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  border-top: 1px solid #abafb4;
+  -webkit-animation: wpf-fadein 0.2s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: wpf-fadein 0.2s; /* Firefox < 16 */
+  -ms-animation: wpf-fadein 0.2s; /* Internet Explorer */
+  -o-animation: wpf-fadein 0.2s; /* Opera < 12.1 */
+  animation: wpf-fadein 0.2s;
+
+
+  .wpf-table-title {
+    margin-bottom: 20px;
+
+    h3 {
+      font-weight: 300;
+    }
+  }
+}
+
+.text-input,
+.wpf-pikaday.wpf-input,
+.wpf-wrapper .wpf-input,
+.wpf-wrapper select.wpf-select{
+  border: 0px;
+  border-bottom: 1px solid $input-border-color;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.wpf-wrapper label.wpf-input-label, .wpf-wrapper div.wpf-input-label{
+  color: $label-default-color;
+  font-size: 11px;
+}
+
+.return-message{
+  color: #333;
+  font-weight: 500;
+  margin-left: -20px;
+}
+
+.return-secondary-message{
+  color: #999;
+  font-weight: 300;
+}
+
+.wpf-wrapper input[type="checkbox"]{
+  content: '';
+  width: 20px;
+  height: 20px;
+  //margin-right: .5em;
+  position: relative;
+  top: .25em;
+  display: inline-block;
+  border-radius: 5px;
+}
+.wpf-wrapper h1{
+  text-align: center; 
+  font-size: 20px;
+  font-width: 700;
+  .wpf-step-description{
+    font-weight: 300;
+  }
+}
+
+.wpf-tt-suggestion .wpf-suggestion-title,
+.wpf-tt-suggestion .wpf-suggestion-subtitle{
+  line-height: 1 ! important;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wpf-tt-suggestion .wpf-suggestion-title{
+    left: 48px;
+    position: absolute;
+    top: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.wpf-tt-suggestion .wpf-suggestion-subtitle{
+    position: absolute;
+    left: 48px;
+    top: 31px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.wpf-tt-suggestion .fa{
+  padding-top: 8px;
+  color: gray;
+}
+
+.wpf-tt-suggestion .wpf-form-row{
+  margin: 0px !important; 
+}
+
+.wpf-wrapper .wpf-step-title{
+  margin-top: 28px;
+}
+
+div.wpf-breadcrumb{
+  height: 1px;
+  background-color: $text-secondary-light-color;
+  margin-top: 26px;
+  margin-bottom: 37px;
+}
+
+div.wpf-breadcrumb-active{
+  height: 1px;
+  background-color: $text-primary-color;
+  
+}
+.wpf-breadcrumb-step-1{
+  width: 30%;
+  background-color: $text-primary-color;
+}
+.wpf-breadcrumb-step-2{
+  width: 50%;
+  background-color: $text-primary-color;
+}
+.wpf-breadcrumb-step-3{
+  width: 70%;
+  background-color: $text-primary-color;
+}
+
+div.wpf-breadcrumb .fa{
+  position: relative;
+  background-color: white; 
+  color: $text-primary-color;
+  top: -12px;
+  left: 30%
+}
+div.wpf-breadcrumb .wpf-breadcrumb-icon-step-1{
+  left: 30%
+}
+div.wpf-breadcrumb .wpf-breadcrumb-icon-step-2{
+  left: calc(50% - 20px)
+}
+div.wpf-breadcrumb .wpf-breadcrumb-icon-step-3{
+  left: calc(70% - 40px)
+}
+
+div.wpf-breadcrumb .wpf-breadcrumb-icon-disabled-step-2{
+  left: calc(50% - 20px);
+  color: $text-secondary-light-color;
+}
+div.wpf-breadcrumb .wpf-breadcrumb-icon-disabled-step-3{
+  left: calc(70% - 40px);
+  color: $text-secondary-light-color;
+}
+
+.wpf-right{
+  text-align: right;
+}
+
+.wpf-wrapper{
+  .fa-sm{
+    font-size: 9px;
+  }
+  .fa-md{
+    padding-top: 4px;
+    font-size: 15px;
+  }
+}
+
+.wpf-price-box{
+  font-size: 16px;
+  font-weight: 800;
+}
+.wpf-price-value{
+  color: $text-primary-color;
+}
+
+.wpf-toal-cost{
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.wpf-wrapper{
+  button, input, optgroup, select, textarea{
+    background-color: transparent;
+  }
+}
+
+.wpf-location-value{
+  border-bottom: 1px solid $input-border-valid-color;
+  padding-bottom: 5px;
+}
+
+
+.wpf-tt-address-not-found{
+  text-align: center;
+
+  .fa{
+    padding: 20px;
+    color: $text-primary-color;
+  }
+  .wpf-btn{
+    padding: 10px;
+    width: 70%;
+    background-color: white;
+    border: 1px solid $text-secondary-color;
+    color: $text-secondary-color;
+    border-radius: 25px;
+  }
+  p{
+    padding-bottom: 10px;
+  }
+}
+
+
+.wpf-control{
+  border-left: 2px solid transparent;
+  padding-top: 10px;
+
+  .wpf-input-label {
+    padding-left: 10px;
+  }
+}
+.wpf-form-focused > .wpf-control{
+  background-color: $focus-background-color;
+  border-left: 2px solid #01006c;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+
+input[type="checkbox"] + label {
+  font-size: 1em;
+  curser: pointer;
+}
+
+input[type="checkbox"] {
+  position:absolute;
+  opacity:0;
+  curser: pointer;
+
+  &:hover, &:focus, &:hover + label, &:focus + label {
+    border-color: #ddd;
+    color: #ddd;
+  }
+
+  &:checked + label {
+    color: black;
+    position:relative;
+  }
+}
+
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: .25em;
+  left: -25px;
+  display: inline-block;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+input[type="checkbox"]:not(:checked) + label::after,
+input[type="checkbox"]:checked + label::after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  font-size: 14px;
+  display: block;
+  position: absolute;
+  top: -3px;
+  left: -25px;
+  width: 20px;
+  height: 20px;
+  background-color: $text-primary-color;
+  color: white;
+  border: 1px solid $text-primary-color;
+  border-radius: 5px;
+  text-align: center;
+  transition: all .2s linear;
+}
+/* checked mark aspect changes */
+input[type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+}
+input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+}
+
+.wpf-wrapper select:focus{
+  background-color: transparent !important;
+  outline: 0px;
+}
+
+.wpf-boxed{
+  border: 1px solid $text-secondary-light-color;
+  padding: 5px;
+}
+
+.wpf-secondary-light{
+  color: $text-secondary-light-color;
+}
+
+.wpf-price-info{
+  position: absolute;
+  top: calc(50% - 21px);
+  right: 5%;
+}
+
+.wpf-wrapper{
+  .wpf-form-invalid{
+    .wpf-input-label{
+      color: $label-error-color;
+    }
+    select.wpf-select{
+      border: 0px;
+      border-bottom: 1px solid $input-border-error-color;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      color: black;
+    }
+    input{
+      border: 0px;
+      border-bottom: 1px solid $input-border-error-color;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
+}
+
+.wpf-wrapper{
+  .wpf-form-valid{
+    .wpf-input-label{
+      color: $label-valid-color;
+    }
+    select.wpf-select{
+      border: 0px;
+      border-bottom: 1px solid $input-border-valid-color;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      color: black;
+    }
+    input{
+      color: black;
+      border: 0px;
+      border-bottom: 1px solid $input-border-valid-color;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+  }
+}
+.parsley-errors-list.filled{
+  display: none;
+}
+
+.wpf-wrapper{
+  ::-webkit-input-placeholder {
+    font-size: 15px;
+    font-weight: 300;
+    color: #8e959f;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    font-size: 15px;
+    font-weight: 300;
+    color: #8e959f;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    font-size: 15px;
+    font-weight: 300;
+    color: #8e959f;
+  }
+
+  :-ms-input-placeholder {  
+    font-size: 15px;
+    font-weight: 300;
+    color: #8e959f;
+  }
+}
+.wpf-wrapper {
+    select{
+    font-size: 15px;
+    font-weight: 300;
+    color: #8e959f;
+    }
+}
+
+.wpf-price-info{
+  .fa-stack{
+    color: $text-secondary-light-color;      
+  }
+}
+
+.wpf-location-title{
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 10px;
+  margin-left: 15px;
+  position: absolute;
+  max-width: 87%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.wpf-reverse-btn{
+    margin-top: 10px;
+    cursor: pointer;
+    left: calc(50% - 5px);
+    position: absolute;
+    top: 25px;
+}
+
+  .tooltip {
+    max-width: 300px !important;
+    font-size: 12px;
+    font-weight: 300;
+  }
+
+.wpf-coupon-trigger{
+  font-size: 11px;
+  color: $text-primary-color;
+  cursor: pointer;
+}
+
+.wpf-success{
+  color: $text-primary-color;
+}
+.wpf-error{
+  color: $label-error-color;
+}
+.wpf-coupon-check{
+    float: right;
+    margin-top: -30px;
+}
+.wpf-back-btn{
+    left: 40px;
+    position: absolute;
+    top: 27px;
+    font-size: 13px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.wpf-price-in-btn{
+    background-color: #5dce95;
+    width: 72px;
+    padding: 15px;
+    padding-top: 10px;
+    position: absolute;
+    line-height: 1;
+    top: 10px;
+    height: 60px;
+    right: 1%;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    .wpf-estimate-price-title{
+        font-size: 10px;
+        font-weight: 700;
+    }
+    .wpf-estimate-price{
+        font-size: 18px;
+        font-weight: 700;
+    }
+}
+
+.wpf-wrapper{
+.wpf-span-3-of-6-shrink-left{
+    width: calc(50% - 10px);
+    float: right !important;
+}
+.wpf-span-3-of-6-shrink-right{
+    width: calc(50% - 10px);
+    float: left !important;
+}
+}

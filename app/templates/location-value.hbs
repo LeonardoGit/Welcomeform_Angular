@@ -1,0 +1,9 @@
+<div class="wpf-location-value">
+{{location-icon location=selectedLocation}}  
+<span class="wpf-location-title">{{selectedLocation.title}}
+  {{#if selectedLocation.google_autocomplete }} 
+  - {{ selectedLocation.full_address}}
+  {{/if}}
+</span>
+</div>
+

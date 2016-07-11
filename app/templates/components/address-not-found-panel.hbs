@@ -1,0 +1,21 @@
+<div class="wpf-table-title">
+  <h3 class="wpf-center">Custom Address<span class="wpf-close-btn" {{action 'closePanel'}}></span></h3>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-1-of-6">
+      <br> 
+    </div>
+    <div class="wpf-col wpf-span-4-of-6 wpf-center">
+      {{googlemaps-autocomplete-input location=location}}
+      <button id="next-form-btn" class="wpf-btn wpf-submit-form-btn" {{action "select_address"}}>
+        Select
+      </button>
+    </div>
+    <div class="wpf-col wpf-span-1-of-6">
+      <br> 
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,113 @@
+<h1 class="wpf-step-title">
+  <span class="fa-stack wpf-back-btn" {{action "previous_step"}}>
+    <i class="fa fa-circle-thin fa-stack-2x"></i>
+    <i class="fa fa-chevron-left fa-stack-1x"></i>
+  </span>
+  <span class="wpf-step-name">Step 2</span> - <span class="wpf-step-description">Your Return Trip Info</span>
+</h1>
+
+<div class="wpf-breadcrumb">
+  <div class="wpf-breadcrumb-active wpf-breadcrumb-step-2">
+  </div>
+  <i class="fa fa-dot-circle-o wpf-breadcrumb-icon-step-1"></i>
+  <i class="fa fa-dot-circle-o wpf-breadcrumb-icon-step-2"></i>
+  <i class="fa fa-circle-thin wpf-breadcrumb-icon-disabled-step-3"></i>
+</div>
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-3-of-6">
+      <div class="wpf-control">
+        <label class="wpf-input-label">{{form.second_way.from_name.label}}</label> 
+        {{#if form.second_way.from_name.is_single_location}}
+        <div class="wpf-location-value">
+          {{location-icon location=form.second_selected_from_transfer}}  
+            <span class="wpf-location-title">
+          {{form.second_selected_from_transfer.title}}
+      </span>
+        </div>
+        {{else}}
+        {{location-input  form=form form_value="form.second_selected_from_transfer" default_value="form.first_selected_to_transfer" city=form.crm_city.value}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="wpf-col wpf-span-3-of-6">
+      <div class="wpf-control">
+        <label class="wpf-input-label">{{form.second_way.to_name.label}}</label> 
+        {{#if form.second_way.to_name.is_single_location}}
+        <div class="wpf-location-value">
+          {{location-icon location=form.second_selected_to_transfer}}  
+            <span class="wpf-location-title">
+          {{form.second_selected_to_transfer.title}}
+      </span>
+        </div>
+        {{else}}
+        {{location-input form=form form_value="form.second_selected_to_transfer" default_value="form.first_selected_from_transfer" city=form.crm_city.value pull_left=true}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col  {{form.second_way_span}}">
+      <div class="wpf-control">
+        <label for="{{form.second_way.date.id}}"  class="wpf-input-label">
+          {{form.second_way_date_label}} {{wpf-tooltip hint=form.second_way.date.tooltip}}
+        </label> 
+        {{pikaday-input class="wpf-input" theme=model.form.theme name=form.second_way.date.name id=form.second_way.date.id value=form.second_way.date.value 
+        city_time_zone=form.city_time_zone calendar_min_date_threshold_hours=form.calendar_min_date_threshold_hours placeholder=form.second_way.date.placeholder required="required" readonly="readonly"}}
+      </div>
+    </div>
+    <div class="wpf-col  {{form.second_way_span}}">
+      <div class="wpf-control">
+        <label for="{{form.second_way.time.id}}"  class="wpf-input-label">{{form.second_way_time_label}} {{wpf-tooltip hint=form.second_way.time.tooltip}}</label> 
+        {{#wpf-select value=form.second_way_time required="true" class="wpf-select"}} 
+        <option value=" ">13:10 (1:10 PM)</option>
+        {{#each times as |item|}}
+        {{#x-option value=item.value}}{{item.text}}{{/x-option}}
+        {{/each}}
+        {{/wpf-select}}
+      </div>
+    </div>
+    {{#if form.second_way_is_airport}} 
+    <div class="wpf-col wpf-span-2-of-6">
+      <div class="wpf-section wpf-group">
+        <div class="wpf-col wpf-span-6-of-6">
+          <div class="wpf-control">
+              <label for="{{form.second_way.flight_number.id}}" class="wpf-input-label">{{form.second_way_flight_number_label}}  {{wpf-tooltip hint=form.second_way.flight_number.tooltip}}</label>
+            {{wpf-input-field type="text" class="wpf-input" name=form.second_way.flight_number.name id=form.second_way.flight_number.id value=form.second_way.flight_number.value placeholder=form.second_way.flight_number.placeholder required=form.second_way_is_airport data-parsley-pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9_\s-]+)$"   data-parsley-pattern-message="Should have both letters and numbers."}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{#if form.second_way_is_port}} 
+    <div class="wpf-col wpf-span-2-of-6">
+      <div class="wpf-section wpf-group">
+        <div class="wpf-col wpf-span-6-of-6">
+          <div class="wpf-control">
+              <label for="{{form.second_way.ferry_number.id}}" class="wpf-input-label">{{form.second_way_ferry_number_label}} {{wpf-tooltip hint=form.second_way.ferry_number.tooltip}}</label>
+            {{wpf-input-field type="text" class="wpf-input" name=form.second_way.ferry_number.name id=form.second_way.ferry_number.id value=form.second_way.ferry_number.value placeholder=form.second_way.ferry_number.placeholder required=form.second_way_is_port }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6 wpf-center">
+      <button id="next-form-btn" class="wpf-btn wpf-submit-form-btn {{unless form_is_valid "wpf-submit-form-btn-with-error"}}" {{action "next_step"}}>
+        Next Step
+        {{ wpf-price price=form.form_total_price fetching_rates=form.fetching_rates }}
+        {{#unless form_is_valid}}
+        <div class="wpf-button-message">(Please fill all required fields)</div>
+        {{/unless}}
+      </button>
+    </div>
+  </div>
+</div>
+

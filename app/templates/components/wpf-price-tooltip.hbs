@@ -1,0 +1,19 @@
+<span class="fa-stack fa-md" >
+    <i class="fa fa-circle-thin fa-stack-2x"></i>
+    <i class="fa fa-question fa-stack-1x"></i>
+</span>
+{{#tooltip-on-parent place='left' effectClass='fade'}}
+{{vehicles}} x {{vehicle_label}} for {{form.first_way.passengers.value}} {{passengers_label}}: 
+{{form.first_selected_from_transfer.title}} <i class="fa fa-arrow-right"></i> {{form.first_selected_to_transfer.title}}
+{{#if km_first_way}}
+({{km_first_way}} km)
+{{/if}}
+<br/>
+{{#if form.is_return_selected}}
+{{vehicles}} x {{vehicle_label}} for {{form.first_way.passengers.value}} {{passengers_label}}: 
+{{form.second_selected_from_transfer.title}} <i class="fa fa-arrow-right"></i> {{form.second_selected_to_transfer.title}}
+{{#if km_second_way}}
+({{km_second_way}} km)
+{{/if}}
+{{/if}}
+{{/tooltip-on-parent}}

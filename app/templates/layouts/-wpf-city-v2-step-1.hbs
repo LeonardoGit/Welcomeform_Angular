@@ -1,0 +1,177 @@
+<h1 class="wpf-step-title">
+  <span class="wpf-step-name">Step 1</span> - <span class="wpf-step-description">Book your Welcome Transfer</span>
+</h1>
+<div class="wpf-breadcrumb">
+    <div class="wpf-breadcrumb-active wpf-breadcrumb-step-1">
+    </div>
+    <i class="fa fa-dot-circle-o wpf-breadcrumb-icon-step-1"></i>
+    <i class="fa fa-circle-thin wpf-breadcrumb-icon-disabled-step-2"></i>
+    <i class="fa fa-circle-thin wpf-breadcrumb-icon-disabled-step-3"></i>
+</div>
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+      <div class="wpf-col wpf-span-3-of-6 {{if has_single_location "wpf-span-3-of-6-shrink-right"}}">
+        <div class="wpf-control">
+            <label class="wpf-input-label">{{form.first_way.from_name.label}}</label> 
+            {{#if form.first_way.from_name.is_single_location}}
+            <div class="wpf-location-value">
+                {{location-icon location=form.first_selected_from_transfer}}  
+                <span class="wpf-location-title">
+                    {{form.first_selected_from_transfer.title}}
+                </span>
+            </div>
+            {{else}}
+            {{location-input  form=form form_value="form.first_selected_from_transfer" placeHolderText="e.g. Airport, Hotel, Address" city=form.crm_city.value }}
+            {{/if}}
+        </div>
+    </div>
+    {{#if has_single_location}}
+        {{reverse-locations form=form}}
+    {{/if}}
+    <div class="wpf-col wpf-span-3-of-6 {{if has_single_location "wpf-span-3-of-6-shrink-left"}} ">
+      <div class="wpf-control">
+        <label class="wpf-input-label">{{form.first_way.to_name.label}}</label> 
+        {{#if form.first_way.to_name.is_single_location}}
+        <div class="wpf-location-value">
+          {{location-icon location=form.first_selected_to_transfer}}  
+            <span class="wpf-location-title">
+          {{form.first_selected_to_transfer.title}}
+      </span>
+        </div>
+        {{else}}
+        {{location-input form=form form_value="form.first_selected_to_transfer" placeHolderText="e.g. Airport, Hotel, Address "city=form.crm_city.value pull_left=true}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col  {{form.first_way_span}}">
+      <div class="wpf-control">
+        <label for="{{form.first_way.date.id}}"  class="wpf-input-label">
+            {{form.first_way_date_label}} {{wpf-tooltip hint=form.first_way.date.tooltip}}
+        </label> 
+        {{pikaday-input class="wpf-input" theme=model.form.theme name=form.first_way.date.name id=form.first_way.date.id value=form.first_way.date.value city_time_zone=form.city_time_zone
+        calendar_min_date_threshold_hours=form.calendar_min_date_threshold_hours placeholder=form.first_way.date.placeholder required="required" readonly="readonly"}}
+
+      </div>
+    </div>
+
+    <div class="wpf-col  {{form.first_way_span}}">
+      <div class="wpf-control">
+        <label for="{{form.first_way.time.id}}"  class="wpf-input-label">
+            {{form.first_way_time_label}} {{wpf-tooltip hint=form.first_way.time.tooltip}}
+        </label> 
+        {{#wpf-select value=form.first_way_time required="true" class="wpf-select"}} 
+        <option value=" ">13:10 (1:10 PM)</option>
+        {{#each times as |item|}}
+        {{#x-option value=item.value}}{{item.text}}{{/x-option}}
+        {{/each}}
+        {{/wpf-select}}
+
+      </div>
+    </div>
+    {{#if form.first_way_is_airport}} 
+    <div class="wpf-col wpf-span-2-of-6">
+      <div class="wpf-section wpf-group">
+        <div class="wpf-col wpf-span-6-of-6">
+          <div class="wpf-control">
+            <label for="{{form.first_way.flight_number.id}}" class="wpf-input-label">{{form.first_way_flight_number_label}}  {{wpf-tooltip hint=form.first_way.flight_number.tooltip}}</label>
+            {{wpf-input-field type="text" class="wpf-input" name=form.first_way.flight_number.name id=form.first_way.flight_number.id value=form.first_way.flight_number.value placeholder=form.first_way.flight_number.placeholder required=form.first_way_is_airport data-parsley-pattern="^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9_\s-]+)$"   data-parsley-pattern-message="Should have both letters and numbers."}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{#if form.first_way_is_port}} 
+    <div class="wpf-col wpf-span-2-of-6">
+      <div class="wpf-section wpf-group">
+        <div class="wpf-col wpf-span-6-of-6">
+          <div class="wpf-control">
+            <label for="{{form.first_way.ferry_number.id}}" class="wpf-input-label">{{form.first_way_ferry_number_label}}  {{wpf-tooltip hint=form.first_way.ferry_number.tooltip}} </label>
+            {{wpf-input-field type="text" class="wpf-input" name=form.first_way.ferry_number.name id=form.first_way.ferry_number.id value=form.first_way.ferry_number.value placeholder=form.first_way.ferry_number.placeholder required=form.first_way_is_port }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-3-of-6">
+      <div class="wpf-control">
+          <label for="{{form.first_way.passengers.id}}"  class="wpf-input-label">{{form.first_way.passengers.label}} {{wpf-tooltip hint=form.first_way.passengers.tooltip}}</label> 
+
+          {{#wpf-select value=form.first_way.passengers.value id=form.first_way.passengers.id name=form.first_way.passengers.name
+          required="true" class="wpf-select"}} 
+          <option value="">{{form.first_way.passengers.placeholder}}</option>
+          {{#each passengers as |grp|}}
+          <optgroup label={{grp.optgroup}}>
+              {{#each grp.options as |item|}}
+              {{#x-option value=item.value}}{{item.text}}{{/x-option}}
+              {{/each}}
+          </optgroup>
+          {{/each}}
+          {{/wpf-select}}
+
+
+      </div>
+    </div>
+    <div class="wpf-col wpf-span-3-of-6">
+      <div class="wpf-control">
+          <label for="{{form.first_way.luggage.id}}"  class="wpf-input-label">{{form.first_way.luggage.label}}{{wpf-tooltip hint=form.first_way.luggage.tooltip}}</label> 
+          {{#wpf-select value=form.first_way.luggage.value id=form.first_way.luggages.id name=form.first_way.luggage.name
+          required="true" class="wpf-select"}} 
+          <option value=" ">{{form.first_way.luggage.placeholder}}</option>
+          {{#each luggages as |grp|}}
+          <optgroup label={{grp.optgroup}}>
+              {{#each grp.options as |item| }}
+              {{#x-option value=item.value}}{{item.text}}{{/x-option}}
+              {{/each}}
+          </optgroup>
+          {{/each}}
+          {{/wpf-select}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6">
+        {{input type="checkbox" name="" id="checkbox_return" checked=form.is_return_selected}}
+        <label for="checkbox_return">
+        <span class="return-message">I also need a return trip  </span><span class="return-secondary-message">(details in the next step)</span>
+      </label>
+    </div>
+  </div>
+</div>
+
+{{#unless form.hide_save_comission }}
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6">
+        Save {{form.crm_distributor_comission.value}} € by booking your return trip today
+    </div>
+  </div>
+</div>
+{{/unless}}
+
+<div class="wpf-form-row">
+  <div class="wpf-section wpf-group">
+    <div class="wpf-col wpf-span-6-of-6 wpf-center">
+        <button id="next-form-btn" class="wpf-btn wpf-submit-form-btn {{unless form_is_valid "wpf-submit-form-btn-with-error"}}" {{ action 'next_step'}} >
+        Next Step
+        {{ wpf-price price=form.form_total_price form=form fetching_rates=form.fetching_rates}}
+        {{#unless form_is_valid}}
+        <div class="wpf-button-message">(Please fill all required fields)</div>
+        {{/unless}}
+      </button>
+    </div>
+  </div>
+</div>
